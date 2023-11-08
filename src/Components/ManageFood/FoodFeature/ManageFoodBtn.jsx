@@ -11,7 +11,6 @@ const ManageFoodBtn = () => {
     const request = useLoaderData();
     const [orders, setOrders] = useState([]);
     const [users, setUsers] = useState(null);
-    // console.log(request);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +30,6 @@ const ManageFoodBtn = () => {
     // console.log(users);
 
     const handelStatus = id => {
-        console.log(id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -42,14 +40,9 @@ const ManageFoodBtn = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://food-donation-server.vercel.app/userFoods/${id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify({ reqStatus: 'Delivered' })
+                axios.put(`https://food-donation-server.vercel.app/reqStatus/${id}`, {
+                    reqStatus: 'Delivered'
                 })
-                    .then(res => res.json())
                     .then(res => {
                         Swal.fire(
                             'Updated!',
@@ -73,8 +66,6 @@ const ManageFoodBtn = () => {
             }
         });
     }
-
-    console.log(users);
 
     return (
         <div>
