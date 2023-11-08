@@ -30,8 +30,9 @@ const RequestEdFood = () => {
         const form = e.target;
         // user info
         const reqName = user.displayName;
-        const reqEmail = user.email;
+        const email = user.email;
         const reqPhoto = user.photoURL;
+        const reqEmail = user.email;
 
         // form values
         const foodName = form.foodName.value.length > 0 ? form.foodName.value : noData;
