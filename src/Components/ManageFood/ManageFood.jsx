@@ -7,12 +7,21 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import MyFoodCart from './MyFoodCart';
 
+import ReactDOM from 'react-dom/client'
+
+import {
+    createColumnHelper,
+    flexRender,
+    getCoreRowModel,
+    useReactTable,
+} from '@tanstack/react-table'
+
 
 
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import ManageFoodTable from './Table/ManageFoodTable';
-// import { useTable } from 'react-table';
+
 
 
 const ManageFood = () => {
