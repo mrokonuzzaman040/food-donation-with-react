@@ -43,7 +43,7 @@ const Router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivetRout><FoodDetails></FoodDetails></PrivetRout>,
-                loader: ({ params }) => fetch(`https://food-donation-server.vercel.app/${params.id}`)
+                loader: ({ params }) => fetch(`https://food-donation-server.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/addfood',
@@ -60,12 +60,12 @@ const Router = createBrowserRouter([
             {
                 path: '/requestedFoods/:id',
                 element: <PrivetRout><RequestEdFood></RequestEdFood></PrivetRout>,
-                loader: ({ params }) => fetch(`https://food-donation-server.vercel.app/foods${params.id}`)
+                loader: ({ params }) => fetch(`https://food-donation-server.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/mamangefood/:id',
                 element: <PrivetRout><ManageFoodBtn></ManageFoodBtn></PrivetRout>,
-                loader: ({ params }) => fetch(`https://food-donation-server.vercel.app/foods${params.id}`)
+                loader: ({ params }) => fetch(`https://food-donation-server.vercel.app/foods/${params.id}`)
             },
             {
                 path: '/foodRequest',
