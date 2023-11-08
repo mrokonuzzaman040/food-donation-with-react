@@ -18,6 +18,7 @@ import FoodDetails from "../../Components/FoodDetails/FoodDetails";
 import ErrorPage from "../../Components/Shared/ErrorPage/ErrorPage";
 import Update from "../../Components/ManageFood/FoodFeature/Update";
 import ManageFoodBtn from "../../Components/ManageFood/FoodFeature/ManageFoodBtn";
+import RequestEdFood from "../../Components/FoodDetails/RequestEdFood";
 
 const Router = createBrowserRouter([
     {
@@ -55,6 +56,11 @@ const Router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivetRout><Update></Update></PrivetRout>,
+            },
+            {
+                path: '/requestedFoods/:id',
+                element: <PrivetRout><RequestEdFood></RequestEdFood></PrivetRout>,
+                loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {
                 path: '/mamangefood/:id',
