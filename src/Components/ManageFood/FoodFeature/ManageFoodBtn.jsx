@@ -42,14 +42,16 @@ const ManageFoodBtn = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     // update state
-                    const remaining = orders.filter(booking => booking._id !== id);
-                    const updated = orders.find(booking => booking._id === id);
-                    updated.status = 'Delivered'
+                    const remaining = users.filter(user => user._id !== id);
+                    const updated = users.find(user => user._id === id);
+                    updated.reqStatus = 'Delivered'
                     const newStatus = [updated, ...remaining];
-                    setBookings(newStatus);
+                    setUsers(newStatus);
                 }
             })
     }
+
+    console.log(users);
 
     return (
         <div>
@@ -62,7 +64,7 @@ const ManageFoodBtn = () => {
                                 <div className="">
                                     <div className="group flex flex-col w-full h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
                                         <div className="h-52 flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
-                                            <img src={user?.reqPhoto} alt="" />
+                                            <img className='min-w-full min-h-full rounded-2xl' src={user?.reqPhoto} alt="" />
                                         </div>
                                         <div className="p-4 md:p-6">
                                             <span className="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">

@@ -30,7 +30,7 @@ const RequestEdFood = () => {
         const form = e.target;
         // user info
         const reqName = user.displayName;
-        const email = user.email;
+        const reqEmail = user.email;
         const reqPhoto = user.photoURL;
 
         // form values
@@ -64,6 +64,7 @@ const RequestEdFood = () => {
             foodId,
             reqStatus,
             reqDoantion,
+            reqEmail,
         };
 
         Swal.fire({
