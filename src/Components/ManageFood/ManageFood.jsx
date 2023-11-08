@@ -14,7 +14,7 @@ const ManageFood = () => {
     const navigate = useNavigate();
 
     // data load from database
-    const url = `http://localhost:5000/userFoods?email=${user?.email}`;
+    const url = `https://food-donation-server.vercel.app/userFoods?email=${user?.email}`;
     useEffect(() => {
         axios.get(url, { withCredentials: true })
             .then(res => {
@@ -27,7 +27,7 @@ const ManageFood = () => {
     const handleDelete = id => {
         //     const proceed = confirm('Are You sure you want to delete');
         //     if (proceed) {
-        //         fetch(`http://localhost:5000/foods/${id}`, {
+        //         fetch(`https://food-donation-server.vercel.app/foods/${id}`, {
         //             method: 'DELETE'
         //         })
         //             .then(res => res.json())
@@ -52,7 +52,7 @@ const ManageFood = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/foods/${id}`, {
+                fetch(`https://food-donation-server.vercel.app/foods/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

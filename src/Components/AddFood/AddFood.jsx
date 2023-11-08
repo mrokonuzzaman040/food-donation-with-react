@@ -42,7 +42,7 @@ const AddFood = () => {
 
         };
 
-        fetch('http://localhost:5000/foods', {
+        fetch('https://food-donation-server.vercel.app/foods', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

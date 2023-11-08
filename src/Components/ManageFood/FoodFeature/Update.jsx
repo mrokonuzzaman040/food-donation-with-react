@@ -14,7 +14,7 @@ const Update = () => {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:5000/foods/${id}`)
+        fetch(`https://food-donation-server.vercel.app/foods/${id}`)
             .then((res) => res.json())
             .then((data) => setData(data));
     }, [id]);
@@ -30,7 +30,7 @@ const Update = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:5000/foods/${id}`, {
+        fetch(`https://food-donation-server.vercel.app/foods/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
