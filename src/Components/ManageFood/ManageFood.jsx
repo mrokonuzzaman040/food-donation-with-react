@@ -7,8 +7,12 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import MyFoodCart from './MyFoodCart';
 
+
+
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import ManageFoodTable from './Table/ManageFoodTable';
+
 
 const ManageFood = () => {
     const { user } = useContext(AuthContex);
@@ -24,26 +28,8 @@ const ManageFood = () => {
             })
     }, [url, navigate]);
 
-
     // delete data from database
     const handleDelete = id => {
-        //     const proceed = confirm('Are You sure you want to delete');
-        //     if (proceed) {
-        //         fetch(`http://localhost:5000/foods/${id}`, {
-        //             method: 'DELETE'
-        //         })
-        //             .then(res => res.json())
-        //             .then(data => {
-        //                 // console.log(data);
-        //                 if (data.deletedCount > 0) {
-        //                     alert('deleted successful');
-        //                     const remaining = request.filter(booking => request._id !== id);
-        //                     setRequest(remaining);
-        //                 }
-        //             })
-        //     }
-        // }
-
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -78,15 +64,14 @@ const ManageFood = () => {
         navigate(`/update/${id}`);
     }
 
+
     const handleManageFood = id => {
         navigate(`/mamangefood/${id}`);
     }
-
     return (
         <div className='max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto'>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
-                    {/* head */}
                     <thead>
                         <tr>
                             <th>
