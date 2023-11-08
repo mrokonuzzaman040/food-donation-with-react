@@ -1,60 +1,71 @@
 import React from 'react';
+import { FaFacebook, FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
     return (
         <footer className="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-10">
                 <div className="col-span-full hidden lg:col-span-1 lg:block">
-                    <a className="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">Brand</a>
-                    <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-400">© 2022 Preline.</p>
+                    <a className="flex-none text-xl font-semibold dark:text-white" href="#" aria-label="Brand">Extra Food</a>
+                    <p className="mt-3 text-xs sm:text-sm text-gray-600 dark:text-gray-400">© 2022 RokonUzzaman040.</p>
                 </div>
                 <div>
-                    <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Product</h4>
+                    <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">About Us</h4>
 
                     <div className="mt-3 grid space-y-3 text-sm">
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Pricing</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Changelog</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Docs</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Download</a></p>
+                        <p>Since 1992, Food Donation Connection has assisted food service companies with the development and implementation of Harvest Programs designed to provide an alternative to discarding surplus food.
+
+                        </p>
                     </div>
                 </div>
                 <div>
-                    <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Company</h4>
+                    <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Phone</h4>
 
                     <div className="mt-3 grid space-y-3 text-sm">
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">About us</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Blog</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Careers</a> <span className="inline text-blue-600 dark:text-blue-500">— We're hiring</span></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Customers</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Newsroom</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Sitemap</a></p>
+                        <p>
+                            Toll-Free USA/Canada
+                            Office: 800-831-8161
+                            FAX: 888-571-5112
+                        </p>
+                        <p>
+                            Toll-Free UK
+
+                            Office: 0-800-324-7064
+
+                            FAX: 0-800-324-7068
+                        </p>
+                        <p>
+                            Toll-Free Global
+
+                            Office: +44 333-247-0242
+                        </p>
                     </div>
                 </div>
                 <div>
-                    <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Resources</h4>
+                    <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Social Link</h4>
 
-                    <div className="mt-3 grid space-y-3 text-sm">
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Community</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Help & Support</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">eBook</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">What's New</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Status</a></p>
+                    <div className="mt-3 grid space-y-3 text-sm justify-center flex-col gap-2">
+                        <a href="https://www.facebook.com/rokonuzzaman040" target="_blank" rel="noopener noreferrer">
+                            <FaFacebook className="text-2xl text-gray-600 hover:text-blue-600 transition-colors duration-300" />
+                        </a>
+                        <a href="https://www.youtube.com/#" target="_blank" rel="noopener noreferrer">
+                            <FaYoutube className="text-2xl text-gray-600 hover:text-red-600 transition-colors duration-300" />
+                        </a>
+                        <a href="https://twitter.com/#" target="_blank" rel="noopener noreferrer">
+                            <FaTwitter className="text-2xl text-gray-600 hover:text-blue-400 transition-colors duration-300" />
+                        </a>
+                        <a href="https://github.com/mrokonuzzaman040" target="_blank" rel="noopener noreferrer">
+                            <FaGithub className="text-2xl text-gray-600 hover:text-blue-400 transition-colors duration-300" />
+                        </a>
                     </div>
                 </div>
                 <div>
-                    <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Developers</h4>
+                    <h4 className="text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Copyrights</h4>
 
                     <div className="mt-3 grid space-y-3 text-sm">
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Api</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Status</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">GitHub</a> <span className="inline text-blue-600 dark:text-blue-500">— New</span></p>
-                    </div>
-
-                    <h4 className="mt-7 text-xs font-semibold text-gray-900 uppercase dark:text-gray-100">Industries</h4>
-
-                    <div className="mt-3 grid space-y-3 text-sm">
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Financial Services</a></p>
-                        <p><a className="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200" href="#">Education</a></p>
+                        <p>© Copyright 2000-2023 GlobalGiving, a 501(c)(3) organization (EIN: 30‑0108263)
+                            Registered Charity in England and Wales # 1122823
+                            1 Thomas Circle NW, Suite 800, Washington, DC 20005, USA   Questions?</p>
                     </div>
                 </div>
             </div>

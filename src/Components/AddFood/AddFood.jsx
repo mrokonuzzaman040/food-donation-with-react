@@ -56,7 +56,7 @@ const AddFood = () => {
             confirmButtonText: 'Yes, add it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('http://localhost:5000/foods', {
+                fetch('https://food-donation-server.vercel.app', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ const AddFood = () => {
             }
         });
 
-        // fetch('http://localhost:5000/foods', {
+        // fetch('https://food-donation-server.vercel.app', {
         //     method: 'POST',
         //     headers: {
         //         'Content-Type': 'application/json'
