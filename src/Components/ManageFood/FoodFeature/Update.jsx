@@ -1,7 +1,9 @@
+import { useTime } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import useTitle from '../../../Hooks/userTitel/useTitel';
 
 const Update = () => {
     const { id } = useParams();
@@ -62,22 +64,13 @@ const Update = () => {
                 )
             }
         })
-        // })
-        // fetch(`https://food-donation-server.vercel.app/${id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data),
-        // })
-        //     .then((res) => res.json())
-        //     .then((data) => console.log(data))
-        //     .catch((err) => console.log(err));
     };
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
+
+    useTitle('Update Food')
 
     return (
         <div className="">

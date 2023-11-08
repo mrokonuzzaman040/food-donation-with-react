@@ -5,8 +5,10 @@ import Footer from '../../Components/Shared/Header/Footer/Footer';
 import BannerOne from '../../Components/Shared/Hero/BannerOne/BannerOne';
 import FeaturedFood from '../../Components/FeaturedFood/FeaturedFood';
 import BannerTwo from '../../Components/Shared/Hero/BannerTwo/BannerTwo';
+import useTitle from '../../Hooks/userTitel/useTitel';
 
 const Home = () => {
+    useTitle('Home');
     return (
         <div>
             <BannerOne />

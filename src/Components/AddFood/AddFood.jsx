@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import useTitle from '../../Hooks/userTitel/useTitel';
 
 const AddFood = () => {
     const { user } = useContext(AuthContex)
@@ -86,7 +87,7 @@ const AddFood = () => {
     }
 
     console.log(user);
-
+    useTitle('Add Food');
     return (
         <div className="max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <div className="bg-white rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">

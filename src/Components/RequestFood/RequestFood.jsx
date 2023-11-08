@@ -9,6 +9,7 @@ import FoodRequestCart from './FoodRequestCart';
 
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import useTitle from '../../Hooks/userTitel/useTitel';
 
 const RequestFood = () => {
     const { user } = useContext(AuthContex);
@@ -57,7 +58,7 @@ const RequestFood = () => {
             }
         })
     }
-
+    useTitle('Request Food')
     return (
         <div className='max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto'>
             <div className="overflow-x-auto w-full">

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContex } from '../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hooks/userTitel/useTitel';
 
 const FoodDetails = () => {
     const { user } = useContext(AuthContex);
@@ -24,9 +25,7 @@ const FoodDetails = () => {
         foodStatus,
         foodLocation,
         addInfo } = food;
-
-console.log(food);
-
+    useTitle('Food Details');
     return (
         <div className="max-w-7xl mx-auto">
             <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">

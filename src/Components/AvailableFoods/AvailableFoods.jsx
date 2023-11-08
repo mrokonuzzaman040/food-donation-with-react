@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import FoodsCart from './FoodsCart';
 import { useState } from 'react';
+import useTitle from '../../Hooks/userTitel/useTitel';
 
 const AvailableFoods = () => {
     const allFoods = useLoaderData();
@@ -35,6 +36,8 @@ const AvailableFoods = () => {
         setFoods(sortedFoods);
         setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc');
     };
+
+    useTitle('Available Foods')
 
     return (
         <div className="">
