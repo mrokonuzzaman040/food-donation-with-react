@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
+
 const FeatureFoodCard = ({ food }) => {
     const { _id, foodName, foodImage, authName, foodQuantity, foodLocation, foodExdate, addInfo } = food;
+    const [rotate, setRotate] = useState(false)
     return (
-        <div >
+        <motion.div animate={{ rotate: rotate ? 360 : 0 }}
+            onClick={() => { setRotate(!rotate) }}>
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="w-96  group flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
                     <div className="flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
@@ -40,7 +44,7 @@ const FeatureFoodCard = ({ food }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
