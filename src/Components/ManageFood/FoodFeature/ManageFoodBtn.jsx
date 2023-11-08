@@ -6,24 +6,26 @@ import axios from 'axios';
 
 const ManageFoodBtn = () => {
     const request = useLoaderData();
-    const [users, setUsers] = useState([]);
+    const [orders, setOrders] = useState([]);
     const [user, setUser] = useState(null);
+    console.log(orders);
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get('http://localhost:5000/orders');
-            setUsers(response.data);
+            setOrders(response.data);
         };
         fetchData();
     }, []);
 
     useEffect(() => {
-        if (users.length > 0) {
-            const filteredUsers = users.filter(u => u.foodId === request._id);
+        if (orders.length > 0) {
+            const filteredUsers = orders.filter(order => order.foodId === request._id);
             setUser(filteredUsers[0]);
         }
-    }, [users, request]);
+    }, [orders, request]);
 
+    // console.log(user);
 
 
     const handelStatus = id => {
@@ -40,8 +42,8 @@ const ManageFoodBtn = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     // update state
-                    const remaining = order.filter(booking => booking._id !== id);
-                    const updated = order.find(booking => booking._id === id);
+                    const remaining = orders.filter(booking => booking._id !== id);
+                    const updated = orders.find(booking => booking._id === id);
                     updated.status = 'Delivered'
                     const newStatus = [updated, ...remaining];
                     setBookings(newStatus);
