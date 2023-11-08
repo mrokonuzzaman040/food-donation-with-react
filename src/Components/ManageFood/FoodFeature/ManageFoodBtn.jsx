@@ -11,7 +11,7 @@ const ManageFoodBtn = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get('https://food-donation-server.vercel.app/orders');
+            const response = await axios.get('http://localhost:5000/orders');
             setUsers(response.data);
         };
         fetchData();
@@ -28,7 +28,7 @@ const ManageFoodBtn = () => {
 
     const handelStatus = id => {
         console.log(id);
-        fetch(`https://food-donation-server.vercel.app/user/orders/${id}`, {
+        fetch(`http://localhost:5000/user/orders/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

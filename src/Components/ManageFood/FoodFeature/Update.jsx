@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const Update = () => {
     const { id } = useParams();
@@ -14,7 +16,7 @@ const Update = () => {
     });
 
     useEffect(() => {
-        fetch(`https://food-donation-server.vercel.app/foods/${id}`)
+        fetch(`http://localhost:5000/foods/${id}`)
             .then((res) => res.json())
             .then((data) => setData(data));
     }, [id]);
@@ -30,16 +32,47 @@ const Update = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`https://food-donation-server.vercel.app/foods/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to update this food item?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+
+            confirmButtonText: 'Yes, update it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/foods/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                    .then((res) => res.json())
+                    .then((data) => console.log(data))
+                    .catch((err) => console.log(err));
+                Swal.fire(
+                    'Updated!',
+                    'Your file has been updated.',
+                    'success'
+                )
+            }
         })
-            .then((res) => res.json())
-            .then((data) => console.log(data))
-            .catch((err) => console.log(err));
+        // })
+        // fetch(`http://localhost:5000/foods/${id}`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+        //     .then((res) => res.json())
+        //     .then((data) => console.log(data))
+        //     .catch((err) => console.log(err));
     };
 
     const handleChange = (e) => {

@@ -7,13 +7,16 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import FoodRequestCart from './FoodRequestCart';
 
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
+
 const RequestFood = () => {
     const { user } = useContext(AuthContex);
     const [request, setRequest] = useState([]);
     const navigate = useNavigate();
 
     // data load from database
-    const url = `https://food-donation-server.vercel.app/user/orders?email=${user?.email}`;
+    const url = `http://localhost:5000/user/orders?email=${user?.email}`;
     useEffect(() => {
         axios.get(url, { withCredentials: true })
             .then(res => {
@@ -24,22 +27,6 @@ const RequestFood = () => {
 
     // delete data from database
     const handleDelete = id => {
-        //     const proceed = confirm('Are You sure you want to delete');
-        //     if (proceed) {
-        //         fetch(`https://food-donation-server.vercel.app/user/orders/${id}`, {
-        //             method: 'DELETE'
-        //         })
-        //             .then(res => res.json())
-        //             .then(data => {
-        //                 if (data.deletedCount > 0) {
-        //                     alert('deleted successful');
-        //                     const remaining = request.filter(booking => request._id !== id);
-        //                     setRequest(remaining);
-        //                 }
-        //             })
-        //     }
-        // }
-
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -50,13 +37,19 @@ const RequestFood = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://food-donation-server.vercel.app/user/orders/${id}`, {
+                fetch(`http://localhost:5000/user/orders/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            alert('deleted successful');
+
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+
                             const remaining = request.filter(booking => request._id !== id);
                             setRequest(remaining);
                         }

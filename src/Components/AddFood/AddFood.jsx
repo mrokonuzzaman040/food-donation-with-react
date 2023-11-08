@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import { AuthContex } from '../../Providers/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
 
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
+
 const AddFood = () => {
     const { user } = useContext(AuthContex)
 
@@ -38,20 +41,48 @@ const AddFood = () => {
             foodStatus,
             foodLocation,
             addInfo,
-            
+
 
         };
 
-        fetch('https://food-donation-server.vercel.app/foods', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newFood)
-        }).then(() => {
-            alert('Product added successfully');
-            form.reset();
-        })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to add this food item?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+
+            confirmButtonText: 'Yes, add it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch('http://localhost:5000/foods', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newFood)
+                }).then(() => {
+                    Swal.fire(
+                        'Added!',
+                        'Your file has been added.',
+                        'success'
+                    )
+                    form.reset();
+                })
+            }
+        });
+
+        // fetch('http://localhost:5000/foods', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(newFood)
+        // }).then(() => {
+        //     alert('Product added successfully');
+        //     form.reset();
+        // })
     }
 
     console.log(user);

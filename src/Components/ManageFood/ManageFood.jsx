@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import MyFoodCart from './MyFoodCart';
 
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const ManageFood = () => {
     const { user } = useContext(AuthContex);
@@ -14,7 +16,7 @@ const ManageFood = () => {
     const navigate = useNavigate();
 
     // data load from database
-    const url = `https://food-donation-server.vercel.app/userFoods?email=${user?.email}`;
+    const url = `http://localhost:5000/userFoods?email=${user?.email}`;
     useEffect(() => {
         axios.get(url, { withCredentials: true })
             .then(res => {
@@ -27,7 +29,7 @@ const ManageFood = () => {
     const handleDelete = id => {
         //     const proceed = confirm('Are You sure you want to delete');
         //     if (proceed) {
-        //         fetch(`https://food-donation-server.vercel.app/foods/${id}`, {
+        //         fetch(`http://localhost:5000/foods/${id}`, {
         //             method: 'DELETE'
         //         })
         //             .then(res => res.json())
@@ -52,7 +54,7 @@ const ManageFood = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://food-donation-server.vercel.app/foods/${id}`, {
+                fetch(`http://localhost:5000/foods/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

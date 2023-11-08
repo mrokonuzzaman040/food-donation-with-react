@@ -32,7 +32,7 @@ const Router = createBrowserRouter([
                 path: '/availablefoods',
                 element: <AvailableFoods> </AvailableFoods>,
                 loader: async () => {
-                    const response = await fetch('https://food-donation-server.vercel.app/foods');
+                    const response = await fetch('http://localhost:5000/foods');
                     const data = await response.json();
                     // Filter the data here
                     const filteredData = data.filter(item => item.foodStatus === "Available");
@@ -42,7 +42,7 @@ const Router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivetRout><FoodDetails></FoodDetails></PrivetRout>,
-                loader: ({ params }) => fetch(`https://food-donation-server.vercel.app/foods/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {
                 path: '/addfood',
@@ -59,7 +59,7 @@ const Router = createBrowserRouter([
             {
                 path: '/mamangefood/:id',
                 element: <PrivetRout><ManageFoodBtn></ManageFoodBtn></PrivetRout>,
-                loader: ({ params }) => fetch(`https://food-donation-server.vercel.app/foods/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
             },
             {
                 path: '/foodRequest',

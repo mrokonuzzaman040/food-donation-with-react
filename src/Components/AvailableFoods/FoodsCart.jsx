@@ -17,7 +17,9 @@ const FoodsCart = ({ food }) => {
         addInfo } = food;
     return (
         <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-            <img className="w-full h-auto rounded-t-xl" src={foodImage} alt="Image Description" />
+            <div className="w-auto h-96">
+                <img className="w-full h-full rounded-t-xl" src={foodImage} alt="Image Description" />
+            </div>
             <div className="p-4 md:p-5">
                 <h3 className="text-2xl font-bold text-gray-800 dark:text-white text-center">
                     {foodName}
