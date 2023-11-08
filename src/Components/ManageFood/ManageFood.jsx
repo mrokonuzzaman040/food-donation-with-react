@@ -25,21 +25,50 @@ const ManageFood = () => {
 
     // delete data from database
     const handleDelete = id => {
-        const proceed = confirm('Are You sure you want to delete');
-        if (proceed) {
-            fetch(`http://localhost:5000/foods/${id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    // console.log(data);
-                    if (data.deletedCount > 0) {
-                        alert('deleted successful');
-                        const remaining = request.filter(booking => request._id !== id);
-                        setRequest(remaining);
-                    }
+        //     const proceed = confirm('Are You sure you want to delete');
+        //     if (proceed) {
+        //         fetch(`http://localhost:5000/foods/${id}`, {
+        //             method: 'DELETE'
+        //         })
+        //             .then(res => res.json())
+        //             .then(data => {
+        //                 // console.log(data);
+        //                 if (data.deletedCount > 0) {
+        //                     alert('deleted successful');
+        //                     const remaining = request.filter(booking => request._id !== id);
+        //                     setRequest(remaining);
+        //                 }
+        //             })
+        //     }
+        // }
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/foods/${id}`, {
+                    method: 'DELETE'
                 })
-        }
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your food has been deleted.',
+                                'success'
+                            )
+                            const remaining = request.filter(booking => request._id !== id);
+                            setRequest(remaining);
+                        }
+                    })
+            }
+        })
     }
 
     // update route

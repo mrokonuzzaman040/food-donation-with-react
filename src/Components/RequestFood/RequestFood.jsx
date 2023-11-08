@@ -24,21 +24,47 @@ const RequestFood = () => {
 
     // delete data from database
     const handleDelete = id => {
-        const proceed = confirm('Are You sure you want to delete');
-        if (proceed) {
-            fetch(`http://localhost:5000/user/orders/${id}`, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        alert('deleted successful');
-                        const remaining = request.filter(booking => request._id !== id);
-                        setRequest(remaining);
-                    }
+        //     const proceed = confirm('Are You sure you want to delete');
+        //     if (proceed) {
+        //         fetch(`http://localhost:5000/user/orders/${id}`, {
+        //             method: 'DELETE'
+        //         })
+        //             .then(res => res.json())
+        //             .then(data => {
+        //                 if (data.deletedCount > 0) {
+        //                     alert('deleted successful');
+        //                     const remaining = request.filter(booking => request._id !== id);
+        //                     setRequest(remaining);
+        //                 }
+        //             })
+        //     }
+        // }
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/user/orders/${id}`, {
+                    method: 'DELETE'
                 })
-        }
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            alert('deleted successful');
+                            const remaining = request.filter(booking => request._id !== id);
+                            setRequest(remaining);
+                        }
+                    })
+            }
+        })
     }
+
     return (
         <div className='max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto'>
             <div className="overflow-x-auto w-full">
