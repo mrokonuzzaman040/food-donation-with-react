@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const FeatureFoodCard = ({ food }) => {
-    const {_id, foodName, foodImage, authName, foodQuantity, foodLocation, foodExdate, addInfo } = food;
+    const { _id, foodName, foodImage, authName, foodQuantity, foodLocation, foodExdate, addInfo } = food;
     return (
-        <div className='max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto'>
+        <div >
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="group flex flex-col w-96 h-96bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-                    <div className=" w-full h-auto flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
-                        <img src={foodImage} alt="" />
+                <div className="w-96  group flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+                    <div className="flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
+                        <img className='w-full h-full rounded-lg' src={foodImage} alt="" />
                     </div>
                     <div className="p-4 md:p-6">
                         <span className="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">

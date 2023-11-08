@@ -25,7 +25,7 @@ const FoodDetails = () => {
         foodLocation,
         addInfo } = food;
 
-
+console.log(food);
 
     return (
         <div className="max-w-7xl mx-auto">
