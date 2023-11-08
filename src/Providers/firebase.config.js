@@ -3,13 +3,12 @@ import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-    apiKey: import.meta.env.Firebase_Auth_apiKey,
-    authDomain: import.meta.env.Firebase_Auth_authDomain,
-    projectId: import.meta.env.Firebase_Auth_projectId,
-    storageBucket: import.meta.env.Firebase_Auth_storageBucket,
-    messagingSenderId: import.meta.env.Firebase_Auth_messagingSenderId,
-    appId: import.meta.env.Firebase_Auth_appId,
-    measurementId: import.meta.env.Firebase_Auth_measurementId,
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID,
 };
 
 
