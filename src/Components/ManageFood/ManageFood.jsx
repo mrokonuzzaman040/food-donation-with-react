@@ -40,7 +40,7 @@ const ManageFood = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://food-donation-server.vercel.app/${id}`, {
+                fetch(`https://food-donation-server.vercel.app/foods/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -51,7 +51,7 @@ const ManageFood = () => {
                                 'Your food has been deleted.',
                                 'success'
                             )
-                            const remaining = request.filter(booking => request._id !== id);
+                            const remaining = request.filter(result => result._id !== id);
                             setRequest(remaining);
                         }
                     })

@@ -16,7 +16,7 @@ const Update = () => {
     });
 
     useEffect(() => {
-        fetch(`https://food-donation-server.vercel.app/${id}`)
+        fetch(`https://food-donation-server.vercel.app/foods/${id}`)
             .then((res) => res.json())
             .then((data) => setData(data));
     }, [id]);
@@ -45,7 +45,7 @@ const Update = () => {
             confirmButtonText: 'Yes, update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://food-donation-server.vercel.app/${id}`, {
+                fetch(`https://food-donation-server.vercel.app/foods/${id}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',

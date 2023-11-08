@@ -4,6 +4,9 @@ import { useLoaderData } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import Swal from 'sweetalert2';
+
+
 const ManageFoodBtn = () => {
     const request = useLoaderData();
     const [orders, setOrders] = useState([]);
@@ -27,28 +30,48 @@ const ManageFoodBtn = () => {
 
     // console.log(users);
 
-
     const handelStatus = id => {
         console.log(id);
-        fetch(`https://food-donation-server.vercel.app/user/orders/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ reqStatus: 'Delivered' })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    // update state
-                    const remaining = users.filter(user => user._id !== id);
-                    const updated = users.find(user => user._id === id);
-                    updated.reqStatus = 'Delivered'
-                    const newStatus = [updated, ...remaining];
-                    setUsers(newStatus);
-                }
-            })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, update it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://food-donation-server.vercel.app/userFoods/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ reqStatus: 'Delivered' })
+                })
+                    .then(res => res.json())
+                    .then(res => {
+                        Swal.fire(
+                            'Updated!',
+                            'The status has been updated.',
+                            'success'
+                        );
+                        const remaining = users.filter(user => user._id !== id);
+                        const updated = users.find(user => user._id === id);
+                        updated.reqStatus = 'Delivered';
+
+                        const newResult = [updated, ...remaining];
+                        setUsers(newResult);
+                    })
+                    .catch(error => {
+                        Swal.fire(
+                            'Error!',
+                            'There was an error updating the status.',
+                            'error'
+                        );
+                    });
+            }
+        });
     }
 
     console.log(users);

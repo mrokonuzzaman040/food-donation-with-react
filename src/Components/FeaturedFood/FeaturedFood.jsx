@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import FeatureFoodCard from './FeatureFoodCard';
 
+
+
 const FeaturedFood = () => {
     const [featuredFood, setFeaturedFood] = useState([])
 

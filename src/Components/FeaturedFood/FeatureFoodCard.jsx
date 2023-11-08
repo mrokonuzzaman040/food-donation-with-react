@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 const FeatureFoodCard = ({ food }) => {
     const { _id, foodName, foodImage, authName, foodQuantity, foodLocation, foodExdate, addInfo } = food;
